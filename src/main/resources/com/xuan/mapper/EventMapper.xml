@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xuan.mapper.EventMapper">
+    <insert id="insert" parameterType="event">
+        insert into events
+        value (#{id},#{l_id},#{thing},#{time})
+    </insert>
+    <select id="findByLid" resultType="event">
+        select * from events where l_id=#{l_id} order by time desc
+    </select>
+    <delete id="delByLid">
+        delete from events where l_id=#{l_id}
+    </delete>
+    <select id="findAll" resultType="event">
+        select * from events
+    </select>
+    <delete id="delById">
+        delete from events where id=#{id}
+    </delete>
+</mapper>

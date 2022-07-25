@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 定义别名-->
+    <typeAliases>
+    <!--会自动识别domain包中的类定义为首字母小写的别名-->
+        <package name="com.xuan.domain"/>
+    </typeAliases>
+    <!--配置分页助手插件-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>
+</configuration>

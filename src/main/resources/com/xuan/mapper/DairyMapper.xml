@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xuan.mapper.DairyMapper">
+    <insert id="insert" parameterType="dairy">
+        insert into dairy
+        value (#{id},#{l_id},#{uid},#{weather},#{time},#{content})
+    </insert>
+    <select id="findByLid" resultType="dairy">
+        select * from dairy where l_id=#{l_id} order by time desc
+    </select>
+    <delete id="delByLid">
+        delete from dairy where l_id=#{l_id}
+    </delete>
+    <delete id="delById">
+        delete from dairy where id=#{id}
+    </delete>
+    <select id="findAll" resultType="dairy">
+        select * from dairy
+    </select>
+</mapper>

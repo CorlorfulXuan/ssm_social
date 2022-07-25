@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xuan.mapper.ConnectionMapper">
+    <select id="selectByUid1" resultType="connection">
+        select * from connection where uid1=#{uid1}
+    </select>
+    <select id="selectByUid2" resultType="connection">
+        select * from connection where uid2=#{uid2}
+    </select>
+    <insert id="addConnection" parameterType="connection">
+        insert into connection
+        value (#{id},#{uid1},#{uid2},#{create_time},#{isConfirm})
+    </insert>
+    <update id="confirm">
+        update connection
+        set isConfirm=1
+        where uid2=#{uid2}
+    </update>
+    <select id="findAll" resultType="connection">
+        select * from connection
+    </select>
+    <delete id="delById">
+        delete from connection where id=#{id}
+    </delete>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xuan.mapper.CommentMapper">
+    <select id="findByMid" resultType="comment" parameterType="int">
+        select * from comment where mid=#{mid}
+    </select>
+    <select id="findAll" resultType="comment">
+        select * from comment
+    </select>
+    <insert id="addComment" parameterType="comment">
+        insert into comment value (#{id},#{mid},#{content},#{time},#{uid})
+    </insert>
+
+    <delete id="delCommentByMid">
+        delete from comment where mid=#{mid}
+    </delete>
+    <delete id="delById">
+        delete from comment where id=#{id}
+    </delete>
+    <delete id="delByUid">
+        delete from comment where uid=#{uid}
+    </delete>
+
+
+</mapper>

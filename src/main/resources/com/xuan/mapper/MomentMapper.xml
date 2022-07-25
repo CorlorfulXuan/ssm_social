@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xuan.mapper.MomentMapper">
+    <select id="findAll" resultType="moment">
+        select * from moment order by time desc
+    </select>
+
+    <select id="findByUid" resultType="moment" parameterType="int">
+        select * from moment where uid=#{uid} order by time desc
+    </select>
+
+    <insert id="addMoment" parameterType="moment">
+        insert into moment value (#{id},#{uid},#{content},#{img},#{time},#{like})
+    </insert>
+
+    <delete id="delMoment">
+        delete from moment where id=#{mid}
+    </delete>
+
+</mapper>
